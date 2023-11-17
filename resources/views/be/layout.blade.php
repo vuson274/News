@@ -358,11 +358,24 @@
             <!-- End of Topbar -->
 
             <!-- Begin Page Content -->
+            @if(\Illuminate\Support\Facades\Session::has('success'))
+                <div class="alert alert-success alert-dismissible fade show" role="alert">
+                    <strong>Success</strong>{{\Illuminate\Support\Facades\Session::get('success')}}
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+            @endif
+            @if(\Illuminate\Support\Facades\Session::has('error'))
+                <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                    <strong>Success</strong>{{\Illuminate\Support\Facades\Session::get('error')}}
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+            @endif
             <div class="container-fluid">
-
-                <!-- Page Heading -->
-                <h1 class="h3 mb-4 text-gray-800">Blank Page</h1>
-
+                @yield('content')
             </div>
             <!-- /.container-fluid -->
 
@@ -419,6 +432,7 @@
 
 <!-- Custom scripts for all pages-->
 <script src="{{asset('/adminlte/js/sb-admin-2.min.js')}}"></script>
+<script src="{{asset('/adminlte/js/myjs.js')}}"></script>
 
 </body>
 
