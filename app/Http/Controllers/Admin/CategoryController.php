@@ -13,7 +13,7 @@ class CategoryController extends Controller implements ICRUD
     public function list()
     {
         $list = Category::all();
-        return view('be.category.list',compact('list'));
+        return view('be.category.list', compact('list'));
     }
 
     public function add()
