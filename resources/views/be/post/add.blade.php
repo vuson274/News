@@ -18,7 +18,7 @@
             </div>
             <div class="form-group">
                 <label for="">Mô tả ngắn</label> <span id="errororigin"></span>
-                <textarea  class="form-control ckeditor" id="description" name="description"  value="" >{{old('content')}}</textarea>
+                <textarea  class="form-control ckeditor" id="editor1" name="description"  value="" >{{old('content')}}</textarea>
             </div>
             <div class="form-group">
                 <label for="">Ảnh đại diện</label><span id="errormain"></span>

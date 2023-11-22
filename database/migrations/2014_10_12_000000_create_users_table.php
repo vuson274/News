@@ -20,6 +20,7 @@ return new class extends Migration
             $table->string('phone');
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
+            $table->tinyInteger('level')->default(1); // 1-admin, 2-user
             $table->rememberToken();
             $table->timestamps();
         });

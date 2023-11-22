@@ -442,7 +442,18 @@
 <script src="{{asset('/adminlte/js/demo/datatables-demo.js')}}"></script>
 <script>
     ClassicEditor
-        .create( document.querySelector( '#editor' ) )
+        .create( document.querySelector( '#editor' ), {
+            ckfinder: {
+                uploadUrl: '{{route('ckeditor.upload').'?_token='.csrf_token()}}',
+            }
+        })
+        .catch( error => {
+            console.error( error );
+        } );
+</script>
+<script>
+    ClassicEditor
+        .create( document.querySelector( '#editor1' ) )
         .catch( error => {
             console.error( error );
         } );

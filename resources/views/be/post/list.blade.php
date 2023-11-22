@@ -11,7 +11,11 @@
                 <thead class="table">
                 <tr>
                     <th>Id</th>
-                    <th>Tên</th>
+                    <th>Tên bài viết</th>
+                    <th>Mô tả</th>
+                    <th>Danh mục</th>
+                    <th>Loại tin</th>
+                    <th>Ảnh</th>
                     <th>Thao tác</th>
                 </tr>
                 </thead>
@@ -19,9 +23,23 @@
                 @foreach($list as $item)
                     <tr>
                         <td>{{$item->id}}</td>
-                        <td>{{$item->name}}</td>
+                        <td>{{$item->title}}</td>
+                        <td><?php
+                                echo $item->description;
+                            ?></td>
+                        <td>{{$item->category->name}}</td>
+                        <td><?php
+                            if ($item->type == 1){
+                                echo "tin đặc biệt";
+                            } else{
+                                echo "tin thường";
+                            }
+                            ?></td>
                         <td>
-                            <button array="{{$item}}" id="{{$item->id}}" class="editcategory btn btn-warning">Sửa</button>
+                            <img src="{{asset($item->images[0]->path)}}" width="100px">
+                        </td>
+                        <td>
+                            <a class="btn btn-warning" href="{{route('admin.post.edit', ['id'=>$item->id])}}">Sửa</a>
                             <a class="btn btn-danger" href="{{route('admin.category.delete',['id'=>$item->id])}}" onclick="return confirm('Bạn có muốn xoá ?')">Xóa</a>
                         </td>
                     </tr>
