@@ -1,10 +1,12 @@
 <?php
-    use Illuminate\Support\Facades\Route;
-    use App\Http\Controllers\Admin\AdminController;
-    use App\Http\Controllers\Admin\CategoryController;
-    use App\Http\Controllers\Admin\PostController;
-    use App\Http\Controllers\Admin\UserController;
-    Route::prefix('/admin')->group(function(){
+
+use App\Http\Controllers\Admin\CategoryController;
+use App\Http\Controllers\Admin\LoginController;
+use App\Http\Controllers\Admin\PostController;
+use App\Http\Controllers\Admin\UserController;
+use Illuminate\Support\Facades\Route;
+
+Route::prefix('/admin')->middleware('admin')->group(function(){
         Route::prefix('/user')->group(function(){
             Route::get('/',[UserController::class,'list'])->name('admin.user.list');
             Route::post('/add',[UserController::class,'doAdd'])->name('admin.user.doAdd');
@@ -23,8 +25,11 @@
             Route::post('/add',[PostController::class,'doAdd'])->name('admin.post.doAdd');
             Route::get('/edit/{id}',[PostController::class, 'edit'])->name('admin.post.edit');
             Route::post('/edit',[PostController::class,'doEdit'])->name('admin.post.doEdit');
-            Route::get('/delete',[PostController::class,'delete'])->name('admin.post.delete');
+            Route::get('/delete/{id}',[PostController::class,'delete'])->name('admin.post.delete');
         });
         Route::post('/upload', [PostController::class,'upload'])->name('ckeditor.upload');
     });
+    Route::get('/admin',[LoginController::class,'viewLogin'])->name('login');
+    Route::post('/admin',[LoginController::class, 'Login'])->name('admin.login');
+    Route::get('/logout',[LoginController::class,'logout'])->name('admin.logout');
 ?>

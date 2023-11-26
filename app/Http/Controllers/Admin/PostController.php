@@ -109,6 +109,11 @@ class PostController extends Controller implements ICRUD
 
     public function delete($id)
     {
-        // TODO: Implement delete() method.
+        try {
+           Post::where('id', $id)->delete();
+        }catch (\Exception $exception){
+            return  redirect()->back()->with('error', 'xóa thất bại');
+        }
+        return  redirect()->back()->with('error', 'Xóa thành công');
     }
 }

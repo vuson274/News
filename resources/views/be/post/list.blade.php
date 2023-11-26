@@ -40,7 +40,7 @@
                         </td>
                         <td>
                             <a class="btn btn-warning" href="{{route('admin.post.edit', ['id'=>$item->id])}}">Sửa</a>
-                            <a class="btn btn-danger" href="{{route('admin.category.delete',['id'=>$item->id])}}" onclick="return confirm('Bạn có muốn xoá ?')">Xóa</a>
+                            <a class="btn btn-danger" href="{{route('admin.post.delete',['id'=>$item->id])}}" onclick="return confirm('Bạn có muốn xoá ?')">Xóa</a>
                         </td>
                     </tr>
                 @endforeach
