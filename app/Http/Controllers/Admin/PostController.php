@@ -47,8 +47,7 @@ class PostController extends Controller implements ICRUD
                     $data = $request->all();
                     unset($data['_token']);
                     unset($data['thumb']);
-                    // $data['user_id']= Auth::user()->id;
-                    $data['user_id'] = 1;
+                    $data['user_id']= Auth::user()->id;
                     $post = Post::create($data);
                     $fileName = time().$file->getClientOriginalName();
                     $file->storeAs('/posts', $fileName, 'public');
@@ -82,8 +81,7 @@ class PostController extends Controller implements ICRUD
                 unset($data['_token']);
                 unset($data['thumb']);
                 unset($data['insert']);
-                // $data['user_id']= Auth::user()->id;
-                $data['user_id'] = 1;
+                $data['user_id']= Auth::user()->id;
                 Post::where('id', $data['id'])->update($data);
                 if (empty($file)){
                     $Image['path'] = $post->images[0]->path;
@@ -114,6 +112,6 @@ class PostController extends Controller implements ICRUD
         }catch (\Exception $exception){
             return  redirect()->back()->with('error', 'xóa thất bại');
         }
-        return  redirect()->back()->with('error', 'Xóa thành công');
+        return  redirect()->back()->with('success', 'Xóa thành công');
     }
 }
