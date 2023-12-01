@@ -4,6 +4,7 @@ use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\LoginController;
 use App\Http\Controllers\Admin\PostController;
 use App\Http\Controllers\Admin\UserController;
+use App\Http\Controllers\VideoController;
 use Illuminate\Support\Facades\Route;
 
 Route::prefix('/admin')->middleware('admin')->group(function(){
@@ -19,6 +20,12 @@ Route::prefix('/admin')->middleware('admin')->group(function(){
             Route::post('/edit',[CategoryController::class,'doEdit'])->name('admin.category.doEdit');
             Route::get('/edit/{id}',[CategoryController::class,'delete'])->name('admin.category.delete');
         });
+        Route::prefix('/video')->group(function(){
+            Route::get('/',[VideoController::class,'list'])->name('admin.video.list');
+            Route::post('/add',[VideoController::class,'doAdd'])->name('admin.video.doAdd');
+            Route::post('/edit',[VideoController::class,'doEdit'])->name('admin.video.doEdit');
+            Route::get('/edit/{id}',[VideoController::class,'delete'])->name('admin.video.delete');
+        });
         Route::prefix('/post')->group(function(){
             Route::get('/',[PostController::class,'list'])->name('admin.post.list');
             Route::get('/add',[PostController::class,'add'])->name('admin.post.add');
@@ -27,6 +34,7 @@ Route::prefix('/admin')->middleware('admin')->group(function(){
             Route::post('/edit',[PostController::class,'doEdit'])->name('admin.post.doEdit');
             Route::get('/delete/{id}',[PostController::class,'delete'])->name('admin.post.delete');
         });
+
         Route::post('/upload', [PostController::class,'upload'])->name('ckeditor.upload');
     });
     Route::get('/admin',[LoginController::class,'viewLogin'])->name('login');
