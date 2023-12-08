@@ -5,6 +5,7 @@
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <title>News HTML-5 Template </title>
     <meta name="description" content="">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="manifest" href="site.webmanifest">
     <link rel="shortcut icon" type="image/x-icon" href="{{asset('/assets/img/favicon.ico')}}">
@@ -115,9 +116,13 @@
                                 <i class="fas fa-search special-tag"></i>
                                 <div class="search-box">
                                     <form action="#">
-                                        <input type="text" placeholder="Search">
-
+                                        <input id="search" type="text" placeholder="Search">
                                     </form>
+                                </div>
+                                <div id="show_search" style="position: absolute; width: 500px; right: 20%">
+                                    <div class="list-group" id="show-list" style="overflow: auto;height: 500px;">
+                                        <!-- Here autocomplete list will be display -->
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -271,6 +276,34 @@
 <!-- Jquery Plugins, main Jquery -->
 <script src="{{asset('/assets/js/plugins.js')}}"></script>
 <script src="{{asset('/assets/js/main.js')}}"></script>
-
+<script>
+    $.ajaxSetup({
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        }
+    });
+</script>
+<script>
+    $(document).on('keyup','#search',function (e){
+        var searchText = $(this).val();
+        if (searchText != " "){
+            $.ajax({
+                url: "{{ route('search') }}",
+                method: "get",
+                data: {
+                    name: searchText,
+                },
+                success: function (response) {
+                    let result =  response.map(value =>{
+                        return  '<a href="/post/'+value.id+'" class="list-group-item list-group-item-action border-1"><img style="width: 10%;" src="" alt=""> &ensp;' +value.title+'</a>'
+                    })
+                    $("#show-list").html(result);
+                },
+            });
+        }else {
+            $("#show-list").html("");
+        }
+    });
+</script>
 </body>
 </html>

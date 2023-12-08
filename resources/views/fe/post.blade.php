@@ -1,5 +1,10 @@
 @extends('fe.layout')
 @section('content_web')
+    <style>
+        img{
+            width: 100%;
+        }
+    </style>
     <!--================Blog Area =================-->
     <section class="blog_area single-post-area section-padding">
         <div class="container">
@@ -15,9 +20,11 @@
                                 <li><a href="#"><i class="fa fa-user"></i> {{$post->category->name}}</a></li>
 {{--                                <li><a href="#"><i class="fa fa-comments"></i> 03 Comments</a></li>--}}
                             </ul>
-                           <?php
-                                echo $post->content;
-                            ?>
+                           <div>
+                               <?php
+                               echo $post->content;
+                               ?>
+                           </div>
                         </div>
                     </div>
                     <div class="navigation-top">
@@ -236,7 +243,7 @@
                             <h3 class="widget_title">Recent Post</h3>
                             @foreach($newPost as $new)
                             <div class="media post_item">
-                                <img width="100px" src="{{asset($new->images[0]->path)}}" alt="post">
+                                <img style="width: 100px" src="{{asset($new->images[0]->path)}}" alt="post">
                                 <div class="media-body">
                                     <a h href="{{route('post',['id'=>$new->id])}}">
                                         <h3>{{$new->title}}</h3>

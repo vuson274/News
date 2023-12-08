@@ -30,4 +30,10 @@ class HomeController extends Controller
         $listPost = Post::orderBy('id','DESC')->where('category_id', $id)->get();
         return view('fe.category', compact('listPost'));
     }
+
+    public function search(Request $request){
+        $title = $request->name;
+        $posts = Post::where('title','LIKE', "%".$title."%")->get();
+        return response()->json($posts ,200);
+    }
 }
