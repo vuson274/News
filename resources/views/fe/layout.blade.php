@@ -111,7 +111,7 @@
                                 </nav>
                             </div>
                         </div>
-                        <div class="col-xl-2 col-lg-2 col-md-4">
+                        <div class="col-xl-2 col-lg-2 col-md-4" style="display: flex; align-items: center">
                             <div class="header-right-btn f-right d-none d-lg-block">
                                 <i class="fas fa-search special-tag"></i>
                                 <div class="search-box">
@@ -120,9 +120,16 @@
                                     </form>
                                 </div>
                                 <div id="show_search" style="position: absolute; width: 500px; right: 20%">
-                                    <div class="list-group" id="show-list" style="overflow: auto;height: 500px;">
+                                    <div class="list-group" id="show-list" style="overflow: auto;">
                                         <!-- Here autocomplete list will be display -->
                                     </div>
+                                </div>
+                            </div>
+                            <div>
+                                <div style="display: block; padding-left: 10px;">
+                                    <a style="color: black;" href="{{route('show.login')}}"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person" viewBox="0 0 16 16">
+                                            <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6m2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0m4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4m-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664z"/>
+                                        </svg></a>
                                 </div>
                             </div>
                         </div>
@@ -286,7 +293,7 @@
 <script>
     $(document).on('keyup','#search',function (e){
         var searchText = $(this).val();
-        if (searchText != " "){
+        if (searchText != ""){
             $.ajax({
                 url: "{{ route('search') }}",
                 method: "get",

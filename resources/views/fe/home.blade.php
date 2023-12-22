@@ -5,23 +5,6 @@
         <div class="trending-area fix">
             <div class="container">
                 <div class="trending-main">
-                    <!-- Trending Tittle -->
-                    {{--                <div class="row">--}}
-                    {{--                    <div class="col-lg-12">--}}
-                    {{--                        <div class="trending-tittle">--}}
-                    {{--                            <strong>Trending now</strong>--}}
-                    {{--                            <!-- <p>Rem ipsum dolor sit amet, consectetur adipisicing elit.</p> -->--}}
-                    {{--                            <div class="trending-animated">--}}
-                    {{--                                <ul id="js-news" class="js-hidden">--}}
-                    {{--                                    <li class="news-item">Bangladesh dolor sit amet, consectetur adipisicing elit.</li>--}}
-                    {{--                                    <li class="news-item">Spondon IT sit amet, consectetur.......</li>--}}
-                    {{--                                    <li class="news-item">Rem ipsum dolor sit amet, consectetur adipisicing elit.</li>--}}
-                    {{--                                </ul>--}}
-                    {{--                            </div>--}}
-
-                    {{--                        </div>--}}
-                    {{--                    </div>--}}
-                    {{--                </div>--}}
                     <div class="row">
                         <div class="col-lg-8">
                             <!-- Trending Top -->
@@ -132,33 +115,7 @@
                                     </div>
                                 </div>
                                 @endforeach
-{{--                                <div class="weekly-single active">--}}
-{{--                                    <div class="weekly-img">--}}
-{{--                                        <img src="assets/img/news/weeklyNews1.jpg" alt="">--}}
-{{--                                    </div>--}}
-{{--                                    <div class="weekly-caption">--}}
-{{--                                        <span class="color1">Strike</span>--}}
-{{--                                        <h4><a href="#">Welcome To The Best Model  Winner Contest</a></h4>--}}
-{{--                                    </div>--}}
-{{--                                </div>--}}
-{{--                                <div class="weekly-single">--}}
-{{--                                    <div class="weekly-img">--}}
-{{--                                        <img src="assets/img/news/weeklyNews3.jpg" alt="">--}}
-{{--                                    </div>--}}
-{{--                                    <div class="weekly-caption">--}}
-{{--                                        <span class="color1">Strike</span>--}}
-{{--                                        <h4><a href="#">Welcome To The Best Model  Winner Contest</a></h4>--}}
-{{--                                    </div>--}}
-{{--                                </div>--}}
-{{--                                <div class="weekly-single">--}}
-{{--                                    <div class="weekly-img">--}}
-{{--                                        <img src="assets/img/news/weeklyNews1.jpg" alt="">--}}
-{{--                                    </div>--}}
-{{--                                    <div class="weekly-caption">--}}
-{{--                                        <span class="color1">Strike</span>--}}
-{{--                                        <h4><a href="#">Welcome To The Best Model  Winner Contest</a></h4>--}}
-{{--                                    </div>--}}
-{{--                                </div>--}}
+
                             </div>
                         </div>
                     </div>
@@ -527,62 +484,62 @@
         </div>
         <!-- End Start youtube -->
         <!--  Recent Articles start -->
-        <div class="recent-articles">
-            <div class="container">
-                <div class="recent-wrapper">
-                    <!-- section Tittle -->
-                    <div class="row">
-                        <div class="col-lg-12">
-                            <div class="section-tittle mb-30">
-                                <h3>Recent Articles</h3>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-12">
-                            <div class="recent-active dot-style d-flex dot-style">
-                                <div class="single-recent mb-100">
-                                    <div class="what-img">
-                                        <img src="assets/img/news/recent1.jpg" alt="">
-                                    </div>
-                                    <div class="what-cap">
-                                        <span class="color1">Night party</span>
-                                        <h4><a href="#">Welcome To The Best Model  Winner Contest</a></h4>
-                                    </div>
-                                </div>
-                                <div class="single-recent mb-100">
-                                    <div class="what-img">
-                                        <img src="assets/img/news/recent2.jpg" alt="">
-                                    </div>
-                                    <div class="what-cap">
-                                        <span class="color1">Night party</span>
-                                        <h4><a href="#">Welcome To The Best Model  Winner Contest</a></h4>
-                                    </div>
-                                </div>
-                                <div class="single-recent mb-100">
-                                    <div class="what-img">
-                                        <img src="assets/img/news/recent3.jpg" alt="">
-                                    </div>
-                                    <div class="what-cap">
-                                        <span class="color1">Night party</span>
-                                        <h4><a href="#">Welcome To The Best Model  Winner Contest</a></h4>
-                                    </div>
-                                </div>
-                                <div class="single-recent mb-100">
-                                    <div class="what-img">
-                                        <img src="assets/img/news/recent2.jpg" alt="">
-                                    </div>
-                                    <div class="what-cap">
-                                        <span class="color1">Night party</span>
-                                        <h4><a href="#">Welcome To The Best Model  Winner Contest</a></h4>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+{{--        <div class="recent-articles">--}}
+{{--            <div class="container">--}}
+{{--                <div class="recent-wrapper">--}}
+{{--                    <!-- section Tittle -->--}}
+{{--                    <div class="row">--}}
+{{--                        <div class="col-lg-12">--}}
+{{--                            <div class="section-tittle mb-30">--}}
+{{--                                <h3>Recent Articles</h3>--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
+{{--                    <div class="row">--}}
+{{--                        <div class="col-12">--}}
+{{--                            <div class="recent-active dot-style d-flex dot-style">--}}
+{{--                                <div class="single-recent mb-100">--}}
+{{--                                    <div class="what-img">--}}
+{{--                                        <img src="assets/img/news/recent1.jpg" alt="">--}}
+{{--                                    </div>--}}
+{{--                                    <div class="what-cap">--}}
+{{--                                        <span class="color1">Night party</span>--}}
+{{--                                        <h4><a href="#">Welcome To The Best Model  Winner Contest</a></h4>--}}
+{{--                                    </div>--}}
+{{--                                </div>--}}
+{{--                                <div class="single-recent mb-100">--}}
+{{--                                    <div class="what-img">--}}
+{{--                                        <img src="assets/img/news/recent2.jpg" alt="">--}}
+{{--                                    </div>--}}
+{{--                                    <div class="what-cap">--}}
+{{--                                        <span class="color1">Night party</span>--}}
+{{--                                        <h4><a href="#">Welcome To The Best Model  Winner Contest</a></h4>--}}
+{{--                                    </div>--}}
+{{--                                </div>--}}
+{{--                                <div class="single-recent mb-100">--}}
+{{--                                    <div class="what-img">--}}
+{{--                                        <img src="assets/img/news/recent3.jpg" alt="">--}}
+{{--                                    </div>--}}
+{{--                                    <div class="what-cap">--}}
+{{--                                        <span class="color1">Night party</span>--}}
+{{--                                        <h4><a href="#">Welcome To The Best Model  Winner Contest</a></h4>--}}
+{{--                                    </div>--}}
+{{--                                </div>--}}
+{{--                                <div class="single-recent mb-100">--}}
+{{--                                    <div class="what-img">--}}
+{{--                                        <img src="assets/img/news/recent2.jpg" alt="">--}}
+{{--                                    </div>--}}
+{{--                                    <div class="what-cap">--}}
+{{--                                        <span class="color1">Night party</span>--}}
+{{--                                        <h4><a href="#">Welcome To The Best Model  Winner Contest</a></h4>--}}
+{{--                                    </div>--}}
+{{--                                </div>--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
+{{--                </div>--}}
+{{--            </div>--}}
+{{--        </div>--}}
         <!--Recent Articles End -->
         <!--Start pagination -->
         <div class="pagination-area pb-45 text-center">
