@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>News HTML-5 Template </title>
+    <title>AZ News</title>
     <meta name="description" content="">
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -94,19 +94,10 @@
                             <div class="main-menu d-none d-md-block">
                                 <nav>
                                     <ul id="navigation">
-                                        <li><a href="{{route('home')}}">Home</a></li>
-                                        <li><a href="#">Category</a></li>
+                                        <li><a href="{{route('home')}}">Trang chủ</a></li>
+                                        <li><a href="{{route('category',['id'=>1])}}">Danh mục</a></li>
                                         <li><a href="about.html">About</a></li>
-                                        <li><a href="latest_news.html">Latest News</a></li>
-                                        <li><a href="contact.html">Contact</a></li>
-                                        <li><a href="#">Pages</a>
-                                            <ul class="submenu">
-                                                <li><a href="elements.html">Element</a></li>
-                                                <li><a href="blog.html">Blog</a></li>
-                                                <li><a href="single-blog.html">Blog Details</a></li>
-                                                <li><a href="details.html">Categori Details</a></li>
-                                            </ul>
-                                        </li>
+                                        <li><a href="{{route('contact')}}">Liên hệ</a></li>
                                     </ul>
                                 </nav>
                             </div>
@@ -126,11 +117,27 @@
                                 </div>
                             </div>
                             <div>
+                                @if(!\Illuminate\Support\Facades\Auth::check())
                                 <div style="display: block; padding-left: 10px;">
-                                    <a style="color: black;" href="{{route('show.login')}}"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person" viewBox="0 0 16 16">
-                                            <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6m2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0m4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4m-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664z"/>
-                                        </svg></a>
+                                    <a style="color: black;" href="{{route('show.login')}}"><svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-person" viewBox="0 0 16 16">
+                                        <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6m2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0m4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4m-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664z"/></svg>
+                                    </a>
                                 </div>
+                                @endif
+                                @if(\Illuminate\Support\Facades\Auth::check())
+                                <div class="main-menu d-none d-md-block">
+                                            <nav>
+                                                <ul id="navigation" style="color: black;">
+                                                    <li><a href="#">{{\Illuminate\Support\Facades\Auth::user()->name}}</a>
+                                                        <ul class="submenu">
+                                                            <li><a href="elements.html">Hồ sơ</a></li>
+                                                            <li><a href="{{route('logout')}}" onclick="confirm('Bạn có thật sựu muốn đăng xuất')">Đăng xuất</a></li>
+                                                        </ul>
+                                                    </li>
+                                                </ul>
+                                            </nav>
+                                        </div>
+                                @endif
                             </div>
                         </div>
                         <!-- Mobile Menu -->

@@ -9,5 +9,7 @@
     Route::get('/signup',[HomeController::class, 'showSignup'])->name('show.signup');
     Route::post('/signup',[AuthController::class,'register'])->name('register');
     Route::post('/login',[AuthController::class,'loginUser'])->name('login-user');
+    Route::get('/logout',[HomeController::class,'logout'])->name('logout');
     Route::middleware('user')->get('/comment/{id}',[HomeController::class,'comment'])->name('comment');
+    Route::get('/contact',[HomeController::class,'contact'])->name('contact');
 ?>

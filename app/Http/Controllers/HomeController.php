@@ -8,6 +8,7 @@ use App\Models\Video;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
 use App\Models\Category;
+use Illuminate\Support\Facades\Auth;
 
 class HomeController extends Controller
 {
@@ -29,8 +30,9 @@ class HomeController extends Controller
         return view('fe.post', compact('post','categories','newPost','comments'));
     }
     public function category($id){
-        $listPost = Post::orderBy('id','DESC')->where('category_id', $id)->get();
-        return view('fe.category', compact('listPost'));
+        $listCat = Category::all();
+        $listPost = Post::orderBy('id','DESC')->where('category_id', $id)->paginate(9);
+        return view('fe.category', compact('listPost','listCat'));
     }
 
     public function search(Request $request){
@@ -42,7 +44,7 @@ class HomeController extends Controller
     public function comment($id,Request $request){
         $data = $request->all();
         $data['post_id'] = $request->id;
-        $data['user_id'] = 1;// fake
+        $data['user_id'] = Auth::user()->id;
         unset($data['_token']);
         Comment::create($data);
         return redirect()->back();
@@ -53,5 +55,13 @@ class HomeController extends Controller
     }
     public function showSignup(){
         return view('fe.signup');
+    }
+    public function logout(){
+        Auth::logout();
+        return redirect()->back();
+    }
+
+    public function contact(){
+        return view('fe.contact');
     }
 }
