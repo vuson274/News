@@ -1,7 +1,7 @@
 @extends('be.layout')
 @section('content')
     <div class="col-lg-12">
-        <h2> THÊM SẢN PHẨM</h2>
+        <h2>SỬA BÀI VIẾT</h2>
         <form action="{{route('admin.post.doEdit')}}"  method="post"   role="form" enctype="multipart/form-data">
             @csrf
             <div class="form-group">
@@ -16,9 +16,9 @@
                 <label for="">Loại danh mục</label>
                 <select  id="category_id" name="category_id" class="form-control" >
                         @foreach($categories as $category)
-                            <option <?php if ($category->id == $post->category_id) {
+                            <option @php if ($category->id == $post->category_id) {
                                 echo "selected=selected";
-                            } ?> value="{{$category->id}}">{{$category->name}}</option>
+                            } @endphp value="{{$category->id}}">{{$category->name}}</option>
                         @endforeach
                 </select>
             </div>
@@ -37,16 +37,16 @@
             <div class="form-group">
                 <label for="">Loại danh mục</label>
                 <select  id="type" name="type" class="form-control">
-                    <option <?php
+                    <option @php
                             if ($post->type == 1){
                                 echo "selected = selected";
                             }
-                            ?> value="1">Tin đặc biệt</option>
-                    <option <?php
+                            @endphp value="1">Tin đặc biệt</option>
+                    <option @php
                             if ($post->type == 2){
                                 echo "selected = selected";
                             }
-                            ?> value="2">Tin thường</option>
+                            @endphp value="2">Tin thường</option>
                 </select>
             </div>
             <div class="footer">

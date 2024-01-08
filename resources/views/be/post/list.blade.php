@@ -1,7 +1,7 @@
 @extends('be.layout')
 @section('content')
     <div class="col-lg-12">
-        <h2>DANH MỤC</h2>
+        <h2>BÀI VIẾT</h2>
         <div class="text-right" >
             <a class="btn btn-success" href="{{route('admin.post.add')}}">Thêm</a>
         </div>

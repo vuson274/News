@@ -46,7 +46,7 @@ class VideoController extends Controller implements ICRUD
             $data = $request->all();
             unset($data['_token']);
             unset($data['insert']);
-            Category::where('id', $data['id'] )->update($data);
+            Video::where('id', $data['id'] )->update($data);
         }catch (\Exception $exception){
             return redirect()->back()->with('error','Sửa thất bại');
         }
@@ -56,7 +56,7 @@ class VideoController extends Controller implements ICRUD
     public function delete($id)
     {
         try{
-            Category::where('id',$id)->delete();
+            Video::where('id',$id)->delete();
         }catch (Exception $exception){
             return redirect()->back()->with('error','Xóa thất bại');
         }

@@ -104,7 +104,7 @@
                             <div class="media post_item">
                                 <img style="width: 100px" src="{{asset($new->images[0]->path)}}" alt="post">
                                 <div class="media-body">
-                                    <a h href="{{route('post',['id'=>$new->id])}}">
+                                    <a h href="{{route('post.new',['id'=>$new->id])}}">
                                         <h3>{{$new->title}}</h3>
                                     </a>
                                     <p>{{$new->created_at}}</p>

@@ -1,12 +1,12 @@
 @extends('be.layout')
 @section('content')
     <div class="col-lg-12">
-        <h2> THÊM SẢN PHẨM</h2>
+        <h2>THÊM BÀI VIẾT</h2>
         <form action="{{route('admin.post.doAdd')}}"  method="post"   role="form" enctype="multipart/form-data">
             @csrf
             <div class="form-group">
-                <label for="">Tên</label> <span id="errorname"></span>
-                <input type="text" class="form-control"  id="title" name="title"   value="{{old('name')}}" onblur="checkname()"; Required />
+                <label for="">Tiêu đề</label> <span id="errorname"></span>
+                <input type="text" class="form-control"  id="title" name="title"   value="{{old('title')}}" Required />
             </div>
             <div class="form-group">
                 <label for="">Loại danh mục</label>
@@ -25,11 +25,11 @@
                 <input type="file" class="form-control" id="thumb" name="thumb"  accept="image/png, image/gif, image/jpeg" onchange="checkImageMain();" value="" Required>
             </div>
             <div class="form-group">
-                <label for="">Mô tả</label>
+                <label for="">Nội dung</label>
                 <textarea  class="form-control ckeditor" id="editor" name="content"  value="" >{{old('content')}}</textarea>
             </div>
             <div class="form-group">
-                <label for="">Loại danh mục</label>
+                <label for="">Loại tin</label>
                 <select  id="type" name="type" class="form-control" >
                     <option value="1">Tin đặc biệt</option>
                     <option value="2">Tin thường</option>

@@ -4,11 +4,13 @@ namespace App\Http\Controllers;
 
 use App\Models\Comment;
 use App\Models\Post;
+use App\Models\User;
 use App\Models\Video;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
 use App\Models\Category;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 
 class HomeController extends Controller
 {
@@ -16,7 +18,7 @@ class HomeController extends Controller
         $newList = Post::orderBy('id', 'DESC')->limit(5)->get();
         $listSpecial = Post::orderBy('id', 'DESC')->where('type',1)->get();
         $listVideo = Video::orderBy('id','DESC')->limit(5)->get();
-        $posts = Post::orderBy('id','DESC')->whereBetween('created_at', [(new Carbon)->subDays(30)->startOfDay()->toDateString(), (new Carbon)->addDays(1)->endOfDay()->toDateString()])->get();
+        $posts = Post::orderBy('id','DESC')->whereBetween('created_at', [(new Carbon)->subDays(60)->startOfDay()->toDateString(), (new Carbon)->addDays(1)->endOfDay()->toDateString()])->get();
         $listPost = Post::orderBy('id',"DESC")->paginate(4);
         $categories = Category::all();
         $listSport = Post::orderBy('id','DESC')->where('category_id', 1)->paginate(4);
@@ -63,5 +65,25 @@ class HomeController extends Controller
 
     public function contact(){
         return view('fe.contact');
+    }
+
+    public function profile(){
+        return view('fe.my-profile');
+    }
+    public function editProfile(){
+        $data = Auth::user();
+        return view('fe.edit-profile', compact('data'));
+    }
+
+    public function doEditProfile($id, Request $request){
+        try {
+            $data = $request->all();
+            unset($data['_token']);
+            $data['password'] = Hash::make($data['password']);
+            User::where('id',$id)->update($data);
+            return redirect()->back()->with('success', 'Cập nhật thành công');
+        }catch (\Exception $exception){
+            return redirect()->back()->with('error', 'Cập nhật thất bại');
+        }
     }
 }

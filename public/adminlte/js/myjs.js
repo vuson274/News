@@ -14,3 +14,12 @@ $(document).on('click','.editcategory', function (){
     $('#ename').val(obj['name']);
     $("#modalupdate").modal('show');
 })
+
+$(document).on('click','.editvideo', function (){
+    var array = $(this).attr('array');
+    var obj = JSON.parse(array);
+    $('#eid').val(obj['id']);
+    $('#etitle').val(obj['title']);
+    $('#epath').val(obj['path']);
+    $("#modalupdate").modal('show');
+})

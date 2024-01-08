@@ -43,7 +43,7 @@
                                                               @endif>
                                                             {{$post->category->name}}
                                                         </span>
-                                                            <h4><a href="{{route('post',['id'=>$post->id])}}">{{$post->title}}</a></h4>
+                                                            <h4><a href="{{route('post.new',['id'=>$post->id])}}">{{$post->title}}</a></h4>
                                                         </div>
                                                     </div>
                                                 </div>

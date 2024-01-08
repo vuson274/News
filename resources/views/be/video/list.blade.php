@@ -25,8 +25,8 @@
                         <td>{{$item->category->name}}</td>
                         <td>{{$item->path}}</td>
                         <td>
-                            <button array="{{$item}}" id="{{$item->id}}" class="editcategory btn btn-warning">Sửa</button>
-                            <a class="btn btn-danger" href="{{route('admin.category.delete',['id'=>$item->id])}}" onclick="return confirm('Bạn có muốn xoá ?')">Xóa</a>
+                            <button array="{{$item}}" id="{{$item->id}}" class="editvideo btn btn-warning">Sửa</button>
+                            <a class="btn btn-danger" href="{{route('admin.video.delete',['id'=>$item->id])}}" onclick="return confirm('Bạn có muốn xoá ?')">Xóa</a>
                         </td>
                     </tr>
                 @endforeach
@@ -72,7 +72,7 @@
         <div class="modal fade" id="modalupdate" >
             <div class="modal-dialog">
                 <div class="modal-content">
-                    <form action="{{route('admin.category.doEdit')}}"  method="post"   role="form" enctype="multipart/form-data">
+                    <form action="{{route('admin.video.doEdit')}}"  method="post"   role="form" enctype="multipart/form-data">
                         @csrf
                         <div class="modal-header">
                             <legend>Sửa thông tin danh mục</legend>
@@ -84,8 +84,12 @@
                             </div>
 
                             <div class="form-group">
-                                <label for="">Tên</label> <span id="errorname"></span>
-                                <input type="text" class="form-control"  id="ename" name="name"   value="" onblur="checkname()"; Required />
+                                <label for="">Tên</label> <span id="errortitle"></span>
+                                <input type="text" class="form-control"  id="etitle" name="title"   value="" onblur="checkname()"; Required />
+                            </div>
+                            <div class="form-group">
+                                <label for="">Đường dẫn</label> <span id="errorpath"></span>
+                                <input type="text" class="form-control"  id="epath" name="path"   value="" onblur="checkname()"; Required />
                             </div>
                         </div>
 

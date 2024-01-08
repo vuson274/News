@@ -24,7 +24,7 @@ Route::prefix('/admin')->middleware('admin')->group(function(){
             Route::get('/',[VideoController::class,'list'])->name('admin.video.list');
             Route::post('/add',[VideoController::class,'doAdd'])->name('admin.video.doAdd');
             Route::post('/edit',[VideoController::class,'doEdit'])->name('admin.video.doEdit');
-            Route::get('/edit/{id}',[VideoController::class,'delete'])->name('admin.video.delete');
+            Route::get('/delete/{id}',[VideoController::class,'delete'])->name('admin.video.delete');
         });
         Route::prefix('/post')->group(function(){
             Route::get('/',[PostController::class,'list'])->name('admin.post.list');
@@ -39,5 +39,5 @@ Route::prefix('/admin')->middleware('admin')->group(function(){
     });
     Route::get('/admin',[LoginController::class,'viewLogin'])->name('login');
     Route::post('/admin',[LoginController::class, 'Login'])->name('admin.login');
-    Route::get('/logout',[LoginController::class,'logout'])->name('admin.logout');
+    Route::get('/admin/logout',[LoginController::class,'logout'])->name('admin.logout');
 ?>

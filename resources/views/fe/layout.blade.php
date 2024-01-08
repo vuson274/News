@@ -71,7 +71,7 @@
                         <!-- Logo -->
                         <div class="col-xl-3 col-lg-3 col-md-3">
                             <div class="logo">
-                                <a href="index.html"><img src="assets/img/logo/logo.png" alt=""></a>
+                                <a href="{{route('home')}}"><img src="{{asset('assets/img/logo/logo.png')}}" alt=""></a>
                             </div>
                         </div>
                         <div class="col-xl-9 col-lg-9 col-md-9">
@@ -88,7 +88,7 @@
                         <div class="col-xl-10 col-lg-10 col-md-12 header-flex">
                             <!-- sticky -->
                             <div class="sticky-logo">
-                                <a href="index.html"><img src="assets/img/logo/logo.png" alt=""></a>
+                                <a href="{{route("home")}}"><img src="{{asset('/assets/img/logo/logo.png')}}" alt=""></a>
                             </div>
                             <!-- Main-menu -->
                             <div class="main-menu d-none d-md-block">
@@ -96,7 +96,7 @@
                                     <ul id="navigation">
                                         <li><a href="{{route('home')}}">Trang chủ</a></li>
                                         <li><a href="{{route('category',['id'=>1])}}">Danh mục</a></li>
-                                        <li><a href="about.html">About</a></li>
+                                        <li><a href="about.html">Về chúng tôi</a></li>
                                         <li><a href="{{route('contact')}}">Liên hệ</a></li>
                                     </ul>
                                 </nav>
@@ -117,20 +117,20 @@
                                 </div>
                             </div>
                             <div>
-                                @if(!\Illuminate\Support\Facades\Auth::check())
+                                @if(!\Illuminate\Support\Facades\Auth::check() or \Illuminate\Support\Facades\Auth::user()->level !=2)
                                 <div style="display: block; padding-left: 10px;">
                                     <a style="color: black;" href="{{route('show.login')}}"><svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-person" viewBox="0 0 16 16">
                                         <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6m2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0m4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4m-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664z"/></svg>
                                     </a>
                                 </div>
                                 @endif
-                                @if(\Illuminate\Support\Facades\Auth::check())
+                                @if(\Illuminate\Support\Facades\Auth::check() && \Illuminate\Support\Facades\Auth::user()->level==2)
                                 <div class="main-menu d-none d-md-block">
                                             <nav>
                                                 <ul id="navigation" style="color: black;">
                                                     <li><a href="#">{{\Illuminate\Support\Facades\Auth::user()->name}}</a>
                                                         <ul class="submenu">
-                                                            <li><a href="elements.html">Hồ sơ</a></li>
+                                                            <li><a href="{{route('profile')}}">Hồ sơ</a></li>
                                                             <li><a href="{{route('logout')}}" onclick="confirm('Bạn có thật sựu muốn đăng xuất')">Đăng xuất</a></li>
                                                         </ul>
                                                     </li>
@@ -209,7 +209,7 @@
                         </div>
                         <div class="instagram-gellay">
                             <ul class="insta-feed">
-                                <li><a href="#"><img src="assets/img/post/instra1.jpg" alt=""></a></li>
+                                <li><a href="#"><img src="{{asset('assets/img/post/instra1.jpg')}}" alt=""></a></li>
                                 <li><a href="#"><img src="assets/img/post/instra2.jpg" alt=""></a></li>
                                 <li><a href="#"><img src="assets/img/post/instra3.jpg" alt=""></a></li>
                                 <li><a href="#"><img src="assets/img/post/instra4.jpg" alt=""></a></li>

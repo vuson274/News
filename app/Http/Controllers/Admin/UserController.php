@@ -22,6 +22,9 @@ class UserController extends Controller implements ICRUD
 
     public function doAdd(\Illuminate\Http\Request $request)
     {
+        $request->validate([
+            'name'
+       ]);
         try {
             $data = $request->all();
             unset($data['_token']);
