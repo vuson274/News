@@ -12,13 +12,13 @@ Route::prefix('/admin')->middleware('admin')->group(function(){
             Route::get('/',[UserController::class,'list'])->name('admin.user.list');
             Route::post('/add',[UserController::class,'doAdd'])->name('admin.user.doAdd');
             Route::post('/edit',[UserController::class,'doEdit'])->name('admin.user.doEdit');
-            Route::get('/edit/{id}',[UserController::class,'delete'])->name('admin.user.delete');
+            Route::get('/delete/{id}',[UserController::class,'delete'])->name('admin.user.delete');
         });
         Route::prefix('/category')->group(function(){
             Route::get('/',[CategoryController::class,'list'])->name('admin.category.list');
             Route::post('/add',[CategoryController::class,'doAdd'])->name('admin.category.doAdd');
             Route::post('/edit',[CategoryController::class,'doEdit'])->name('admin.category.doEdit');
-            Route::get('/edit/{id}',[CategoryController::class,'delete'])->name('admin.category.delete');
+            Route::get('/delete/{id}',[CategoryController::class,'delete'])->name('admin.category.delete');
         });
         Route::prefix('/video')->group(function(){
             Route::get('/',[VideoController::class,'list'])->name('admin.video.list');
